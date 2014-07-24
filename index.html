@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="An example page that helps explore a TrueVault account">
+		<meta name="author" content="Michael Khalili">
+
+		<title>TrueVault JavaScript Explorer</title>
+
+		<!-- Bootstrap core CSS -->
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="css/custom.css" rel="stylesheet">
+
+		<!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+		<script src="js/ie10-viewport-bug-workaround.js"></script>
+
+		<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!--[if lt IE 9]>
+		  <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+		  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+
+		<div class="jumbotron">
+			<div class="container">
+				<h1>TrueVault JavaScript Explorer</h1>
+				<div class="col-lg-7 truevault-api-fields">
+					<p>Explore documents in your <a href="http://TrueVault.com">TrueVault.com</a> account.
+						This example page uses the TrueVault JavaScript Explorer lib to show vaults, schemas and documents
+						in your account.  Put in your test API information in the fields below to get started.</p>
+					<p>Though this example uses many libraries, the TrueVault JavaScript Explorer lib only depends on <a href="http://jquery.com">jQuery</a> to work.</p>
+				</div>
+				<div class="col-lg-5 truevault-api-fields">
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-cloud"></i>
+						</span>
+						<input type="text" id="api-key" class="form-control" placeholder="API Key">
+					</div>
+
+					<div class="input-group">
+						<span class="input-group-addon">
+							<i class="glyphicon glyphicon-briefcase"></i>
+						</span>
+						<input type="text" id="account-id" class="form-control" placeholder="Account ID">
+					</div>
+
+					<div class="input-group api-settings">
+						<div class="switch">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="save-api-details" checked>
+								<label class="onoffswitch-label" for="save-api-details">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div> 
+						</div>
+						<div class="question">Save API information to session cookie?</div>
+					</div>
+
+					<p>
+						<a class="btn btn-primary btn find-vaults" role="button"><span class='glyphicon glyphicon-hdd'></span> Find Vaults</a>
+						<a class="btn btn-primary btn create-new-document" role="button"><span class='glyphicon glyphicon-file'></span> New Document</a>						
+						<a class="btn btn-primary btn create-new-schema" role="button"><span class="glyphicon glyphicon-book"></span> New Schema</a>
+					</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-6 logs">
+					<h2>Logs</h2>
+					<div class="well content"></div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 vaults">
+					<h2>Vaults</h2>
+					<div class="well content"></div>
+				</div>
+				<div class="col-md-4 schemas">
+					<h2>Schemas</h2>
+					<div class="well content"></div>
+				</div>
+				<div class="col-md-4 documents">
+					<div class="display-option">
+						<h2>Documents</h2>
+						<div class="switch">
+							<div class="onoffswitch">
+								<input type="checkbox" class="onoffswitch-checkbox" id="display-in-editor" checked>
+								<label class="onoffswitch-label" for="display-in-editor">
+									<span class="onoffswitch-inner"></span>
+									<span class="onoffswitch-switch"></span>
+								</label>
+							</div> 
+						</div>
+					</div>
+
+					<div class="well content"></div>
+				</div>
+			</div>
+
+			<hr>
+
+			<footer>
+				<p>&copy; Michael Khalili 2014</p>
+			</footer>
+		</div> <!-- /container -->
+
+		<!-- Modal -->
+		<div class="modal edit fade" id="modal-edit-document" tabindex="-1" role="dialog" aria-labelledby="modal-edit-document-label" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="modal-edit-document"></h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info format">Format</button>
+						<button type="button" class="btn btn-success save">Save</button>
+						<button type="button" class="btn btn-warning cancel" data-dismiss="modal">Close</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal edit fade large" id="modal-create-document" tabindex="-1" role="dialog" aria-labelledby="modal-create-document-label" aria-hidden="true">
+			<div class="modal-dialog modal-lg">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+						<h4 class="modal-title" id="modal-create-document-label">Create new document</h4>
+					</div>
+					<div class="modal-body">
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-info format">Format</button>
+						<button type="button" class="btn btn-success save">Save</button>
+						<button type="button" class="btn btn-warning cancel" data-dismiss="modal">Cancel</button>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="row storage-options">
+			<div class="col-lg-3 vault-options">
+				<select id="select-vault" class="form-control"><option value="">Select a vault</option></select>
+			</div>
+			<div class="col-lg-3 schema-options">
+				<select id="select-schema" class="form-control"><option value="">Select a schema</option></select>
+			</div>
+		</div>
+		<div id='ace-editor-frame'>
+			<div id="ace-editor"></div>
+		</div>
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/jquery.cookie.js"></script>
+		<script src="js/bootstrap.min.js"></script>
+		<script src="js/ace-builds/src-min-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/truevault-javascript-client-library/truevault.js"></script>
+		<script src="js/custom.js"></script>
+	</body>
+</html>

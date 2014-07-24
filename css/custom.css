@@ -1,0 +1,212 @@
+/* HTML elements */
+body {
+  padding-bottom: 20px;
+}
+/* shared styles */
+.break-float {
+  zoom: 1;
+}
+.break-float:before,
+.break-float:after {
+  content: "";
+  display: table;
+}
+.break-float:after {
+  clear: both;
+}
+.delete,
+.delete:active {
+  color: red;
+}
+pre.json {
+  background-color: ghostwhite;
+  border: 1px solid silver;
+  padding: 10px 20px;
+  margin: 20px;
+}
+pre.json .json-key {
+  color: brown;
+}
+pre.json .json-value {
+  color: navy;
+}
+pre.json .json-string {
+  color: olive;
+}
+/*
+onoffswitch toggle switch for session cookie saving
+http://proto.io/freebies/onoff/
+*/
+.onoffswitch {
+  position: relative;
+  width: 90px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+.onoffswitch .onoffswitch-checkbox {
+  display: none;
+}
+.onoffswitch .onoffswitch-label {
+  display: block;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid #666666;
+  border-radius: 5px;
+}
+.onoffswitch .onoffswitch-inner {
+  display: block;
+  width: 200%;
+  margin-left: -100%;
+  -moz-transition: margin 0.3s ease-in 0s;
+  -webkit-transition: margin 0.3s ease-in 0s;
+  -o-transition: margin 0.3s ease-in 0s;
+  transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch .onoffswitch-inner:before,
+.onoffswitch .onoffswitch-inner:after {
+  display: block;
+  float: left;
+  width: 50%;
+  height: 23px;
+  padding: 0;
+  line-height: 23px;
+  font-size: 16px;
+  color: white;
+  font-family: Trebuchet, Arial, sans-serif;
+  font-weight: bold;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.onoffswitch .onoffswitch-inner:before {
+  content: "YES";
+  padding-left: 10px;
+  background-color: #58B039;
+  color: #FFFFFF;
+}
+.onoffswitch .onoffswitch-inner:after {
+  content: "NO";
+  padding-right: 10px;
+  background-color: #F8F8F8;
+  color: #666666;
+  text-align: right;
+}
+.onoffswitch .onoffswitch-switch {
+  display: block;
+  width: 29px;
+  margin: 0px;
+  background: #FFFFFF;
+  border: 2px solid #666666;
+  border-radius: 5px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 57px;
+  -moz-transition: all 0.3s ease-in 0s;
+  -webkit-transition: all 0.3s ease-in 0s;
+  -o-transition: all 0.3s ease-in 0s;
+  transition: all 0.3s ease-in 0s;
+  background-image: -moz-linear-gradient(center top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: -webkit-linear-gradient(center top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: -o-linear-gradient(center top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+  background-image: linear-gradient(center top, rgba(0, 0, 0, 0.1) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.onoffswitch .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+  margin-left: 0;
+}
+.onoffswitch .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+  right: 0px;
+}
+/* section specific style */
+.jumbotron h1 {
+  font-size: 2.5em;
+}
+.jumbotron p {
+  max-width: 600px;
+}
+.jumbotron .truevault-api-fields .input-group {
+  margin-bottom: 10px;
+}
+.jumbotron .api-settings {
+  zoom: 1;
+}
+.jumbotron .api-settings:before,
+.jumbotron .api-settings:after {
+  content: "";
+  display: table;
+}
+.jumbotron .api-settings:after {
+  clear: both;
+}
+.jumbotron .api-settings .switch {
+  float: left;
+  margin-right: 8px;
+}
+.jumbotron .api-settings .question {
+  padding-top: 3px;
+  float: left;
+}
+.logs .content {
+  height: 200px;
+  overflow: scroll;
+  resize: both;
+}
+.logs .content .item {
+  margin-top: 10px;
+}
+.logs .content .title {
+  font-weight: bold;
+}
+.documents .display-option {
+  zoom: 1;
+}
+.documents .display-option:before,
+.documents .display-option:after {
+  content: "";
+  display: table;
+}
+.documents .display-option:after {
+  clear: both;
+}
+.documents .display-option h2 {
+  float: left;
+  margin-right: 15px;
+}
+.documents .display-option .switch {
+  float: left;
+  margin-top: 25px;
+}
+.documents .display-option .switch .onoffswitch-inner:before {
+  content: "EDIT";
+  font-size: 12px;
+}
+.documents .display-option .switch .onoffswitch-inner:after {
+  content: "INLINE";
+  font-size: 12px;
+}
+.documents .document {
+  margin-bottom: 10px;
+}
+.documents .document .options .delete {
+  margin-right: 10px;
+}
+#ace-editor-frame {
+  height: 300px;
+  overflow: scroll;
+  position: relative;
+  resize: both;
+  display: none;
+}
+#ace-editor-frame #ace-editor {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  resize: both;
+}
+.storage-options {
+  margin-bottom: 15px;
+  display: none;
+}
