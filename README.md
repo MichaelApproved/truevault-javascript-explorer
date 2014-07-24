@@ -19,7 +19,7 @@ Open the index.html file in a modern web browser (Firefox, Chrome) and put in yo
 
 This project uses the following technology to make this project possible
 
-- [Ace editor](https://github.com/MichaelApproved/truevault-javascript-client-library/edit/master/readme.md)
+- [Ace editor](http://ace.c9.io/)
 - [bootstrap](http://getbootstrap.com/)
 - [jQuery](http://jquery.com)
 - [jQuery Cookie](https://github.com/carhartl/jquery-cookie)
