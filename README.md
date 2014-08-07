@@ -9,7 +9,9 @@ Manage your TrueVault.com objects (vaults, schemas and documents) using this web
 
 ## Setup
 
-Download the files from this project and also the [truevault-javascript-client-library](https://github.com/MichaelApproved/truevault-javascript-client-library/) JavaScript file. Put the truevault.js file in js/truevault-javascript-client-library/
+Make sure you have the [truevault-javascript-client-library](https://github.com/MichaelApproved/truevault-javascript-client-library/) truevault.js file in js/truevault-javascript-client-library/
+
+It is listed in this project as a submodule and is needed for the Explorer project to work.
 
 ## Usage
 
