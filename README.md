@@ -13,6 +13,12 @@ Make sure you have the [truevault-javascript-client-library](https://github.com/
 
 It is listed in this project as a submodule and is needed for the Explorer project to work.
 
+From bash, you can use `--recursive` to include the submodule in your clone, like so:
+
+```
+git clone --recursive https://github.com/MichaelApproved/truevault-javascript-explorer.git
+```
+
 ## Usage
 
 Open the index.html file in a modern web browser (Firefox, Chrome) and put in your TrueVault credentials. You'll be able to start managing your TrueVault objects right from the browser.
